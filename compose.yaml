@@ -1,11 +1,20 @@
 services:
+  init:
+    image: busybox
+    command: ["mkdir", "-p", "/html"]
+    volumes: 
+      - ./html:/html
+    restart: "no"
+
   apache_host:
     build: docker_file
+    depends_on:
+      - init
     tty: true
     command: ["bash", "-c", "/usr/bin/launcher.sh && tail -f /dev/null"] 
     hostname: apachedev
     network_mode: host
-    dns: dns_ip
+    dns: 8.8.8.8
     environment:
       php_connections_ini: /etc/connections.ini
       TNS_ADMIN: /etc/tnsnames.ora
