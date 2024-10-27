@@ -44,7 +44,7 @@ RUN tar -xvzf /tmp/php-8.1.0.tar.gz -C /tmp/. || echo "ERROR: failed to extract 
     && dnf install mysql-connector-odbc -y || echo "EREROR: failed to install mysql-connector-odbc. skipping" \
     && dnf install mariadb-connector-odbc -y || echo "ERROR: failed to install mariadb-connector-odbc. skipping" \
     && dnf install initscripts -y || echo "ERROR: failed to install initscripts. skipping" \ 
-    && dnf module enable php:8.1 -y || echo "ERROR: failed to enable PHP 8.1. skipping" \
+    && dnf module enable php:8.1 -y || echo "ERROR: failed to enable PHP 8.1. skipping"
     
 # Need to create symoblic link to libltdl library to enable installing sqlsrv and pdo_sqlsrv packages
 RUN ln -s /usr/lib64/libltdl.so.7 /usr/lib64/libltdl.so \
@@ -70,7 +70,7 @@ RUN sed -i 's/;clear_env = no/clear_env = no/g' /etc/php-fpm.d/www.conf \
     && echo 'extension=sqlsrv' >> /etc/php.ini \
     && echo 'extension=pdo_sqlsrv' >> /etc/php.ini \ 
     && echo 'extension=pdo_oci.so' >> /etc/php.ini || echo "ERROR: failed to update php.ini" \
-    && echo 'PassEnv MY_ENV_VAR' >> /etc/httpd/conf/httpd.conf || echo "ERROR: failed to modify httpd.conf"
+    && echo 'PassEnv MY_ENV_VAR' >> /etc/httpd/conf/httpd.conf || echo "ERROR: failed to modify httpd.conf" \
     && rm -rf /tmp/* || echo "ERROR: Failed to empty tmp directory. skipping"
 
 RUN chmod +x /usr/bin/launcher.sh
