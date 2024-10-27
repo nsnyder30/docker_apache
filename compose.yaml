@@ -1,0 +1,16 @@
+services:
+  apache_host:
+    build: docker_file
+    tty: true
+    command: ["bash", "-c", "/usr/bin/launcher.sh && tail -f /dev/null"] 
+    hostname: apachedev
+    network_mode: host
+    dns: dns_ip
+    environment:
+      php_connections_ini: /etc/connections.ini
+      TNS_ADMIN: /etc/tnsnames.ora
+      LD_LIBRARY_PATH: /usr/lib64
+    volumes: 
+      - type: bind
+        source: ./html/
+        target: /var/www/html

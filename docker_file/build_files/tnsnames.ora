@@ -1,0 +1,8 @@
+# [CONN_NAME] =
+#   (DESCRIPTION =
+#     (ADDRESS = (PROTOCOL = TCP)(HOST = [HOST_ADDRESS])(PORT = [HOST_PORT]))
+#     (CONNECT_DATA =
+#       (SERVER = DEDICATED)
+#       (SERVICE_NAME = [SERVICE_NAME])
+#     )
+#   )

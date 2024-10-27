@@ -1,0 +1,3 @@
+# This repo is just for the docker container to run an apache server. Files in the html/ directory 
+# must be pulled from another repo containing the web root files for a given server. 
+html/
