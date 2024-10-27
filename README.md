@@ -1,4 +1,4 @@
-# Apache / PHP Web Server Repository
+# Apache / PHP Web Server
 
 This repository contains the configuration and setup files for running a web server within a Docker container. The main purpose of this setup is to host a web application locally, providing an environment for development, testing, and potentially small-scale production use.
 
